@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Slider.css';
+import { connect } from 'react-redux';
+import { changeImageWidth } from '../redux';
 
 class Slider extends Component {
 	static propTypes = {
@@ -41,4 +43,21 @@ class Slider extends Component {
 	}
 }
 
-export default Slider;
+const mapStateToProps = (state, ownProps) => {
+	return {
+		imageWidth: state.imageWidth
+	};
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		changeImageWidth: (width) => {
+			return dispatch(changeImageWidth(width));
+		}
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Slider);

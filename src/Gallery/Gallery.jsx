@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Gallery.css';
+import { connect } from 'react-redux';
 
 class Gallery extends Component {
 	static propTypes = {
@@ -22,4 +23,18 @@ class Gallery extends Component {
 	}
 }
 
-export default Gallery;
+const mapStateToProps = (state, ownProps) => {
+	return {
+		imageDirectory: state.imageDirectory,
+		imageWidth: state.imageWidth
+	};
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {...ownProps}
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Gallery);

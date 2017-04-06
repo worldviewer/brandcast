@@ -3,10 +3,11 @@
 	position: relative;
 
 	.collection {
+		cursor: pointer;
+		left: 40px;
 		list-style-type: none;
 		margin-bottom: 40px;
 		position: relative;
-		left: 40px;
 
 		&::after {
 			content: "_"

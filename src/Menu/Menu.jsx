@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './Menu.css';
+import { connect } from 'react-redux';
+import { changeActiveCollection } from '../redux';
 
 class Menu extends Component {
 	static propTypes = {
 		collections: React.PropTypes.array,
-		selectCollection: React.PropTypes.func, // .isRequired
+		changeActiveCollection: React.PropTypes.func, // .isRequired
 		active: React.PropTypes.number
 	}
 
@@ -46,18 +48,25 @@ class Menu extends Component {
 
 	getComponent(collection) {
 		console.log('directory: ', this.props.collections[collection].directory);
-		// this.props.selectCollection(collection);
+		this.props.changeActiveCollection(collection);
+	}
+
+	markActiveCollection(collection) {
+		return this.props.active === collection ?
+			(<div className="vertical-line li-line"></div>) :
+			null;
 	}
 
 	render() {
-		let isMobile = false;
+		const 
+			isMobile = false;
 
 		const mediaQueryStyles = isMobile ? {
 				width: '100%'
 			} :
 			{
 				display: 'inline-block',
-				width: '20%'
+				width: '315px'
 			};
 
 		return (
@@ -70,8 +79,7 @@ class Menu extends Component {
 								key={i}
 								className="collection">
 
-								{this.props.active === i &&
-								<div className="vertical-line li-line"></div>}
+								{this.markActiveCollection(i)}
 
 								<p className="name">{collection.name}</p>
 								<p className="dates">{collection.birth} - {collection.death}</p>
@@ -87,4 +95,21 @@ class Menu extends Component {
 	}
 }
 
-export default Menu;
+const mapStateToProps = (state, ownProps) => {
+	return {
+		activeCollection: state.activeCollection
+	};
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		changeActiveCollection: (collection) => {
+			return dispatch(changeActiveCollection(collection));
+		}
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Menu);
