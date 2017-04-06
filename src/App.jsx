@@ -8,7 +8,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				testing
+				<Slider value={50} />
 			</div>
 		);
 	}

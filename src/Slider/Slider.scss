@@ -1,0 +1,48 @@
+.Slider {
+	height: 7px;
+	position: relative;
+	width: 112px;
+
+	.vertical-line {
+		background-color: black;
+		height: 100%;
+		width: 1px;
+		z-index: 15;
+    }
+
+    .left-line {
+    	float: left;
+    }
+
+    .right-line {
+    	float: right;
+    }
+
+    .horizontal-line {
+    	background-color: black;
+    	height: 1px;
+    	position: absolute;
+    	top: 3px;
+    	width: 100%;
+    	z-index: 5;
+    }
+
+    .outer-circle {
+		background-color: black;
+		border: 1px solid black;
+		border-radius: 16px;
+		height: 16px;
+		left: 41%; // 1 --> 83%
+		position: absolute;
+		top: -5px;
+		width: 16px;
+		z-index: 20;
+    }
+
+    .inner-circle {
+		background-color: white;
+		border-radius: 16px;
+		height: 16px;
+		width: 16px;
+    }
+}
