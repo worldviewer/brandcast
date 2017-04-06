@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { screenResize } from './redux.js';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -17,6 +18,10 @@ const store = createStore(
 	reducer,
 	devToolStoreEnhancer
 );
+
+window.addEventListener('resize', () => {
+    store.dispatch(screenResize(window.innerWidth));
+});
 
 ReactDOM.render(
 	<Provider store={store}>

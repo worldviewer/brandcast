@@ -6,11 +6,13 @@ class Menu extends Component {
 	static propTypes = {
 		collections: React.PropTypes.array,
 		changeActiveCollection: React.PropTypes.func.isRequired,
-		active: React.PropTypes.number
+		active: React.PropTypes.number,
+		screenWidth: React.PropTypes.number
 	}
 
 	static defaultProps = {
-		active: 0
+		active: 0,
+		screenWidth: window.innerWidth
 	}
 
 	getComponent(collection) {
@@ -24,11 +26,11 @@ class Menu extends Component {
 	}
 
 	render() {
-		const 
-			isMobile = false;
+		const isMobile = this.props.screenWidth < 640
 
 		const mediaQueryStyles = isMobile ? {
-				width: '100%'
+				display: 'block',
+				top: '100px'
 			} :
 			{
 				display: 'inline-block',

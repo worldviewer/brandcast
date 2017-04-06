@@ -13,17 +13,20 @@ class App extends Component {
 			<div className="App">
 				<Slider
 					value={50}
-				 	changeImageWidth={this.props.changeImageWidth} />
+				 	changeImageWidth={this.props.changeImageWidth}
+				 	screenWidth={this.props.screenWidth} />
 
 				<Menu
 					active={this.props.activeCollection}
 					changeActiveCollection={this.props.changeActiveCollection}
-					collections={this.props.collections} />
+					collections={this.props.collections}
+					screenWidth={this.props.screenWidth} />
 
 				<Gallery
 					directory={this.props.imageDirectory}
 					imageSize={this.props.imageWidth}
-					collections={this.props.collections} />
+					collections={this.props.collections}
+					screenWidth={this.props.screenWidth} />
 			</div>
 		);
 	}
@@ -34,7 +37,8 @@ const mapStateToProps = (state, ownProps) => {
 		imageWidth: state.imageWidth,
 		activeCollection: state.activeCollection,
 		imageDirectory: state.imageDirectory,
-		collections: state.collections
+		collections: state.collections,
+		screenWidth: state.screenWidth
 	};
 };
 

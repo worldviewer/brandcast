@@ -1,6 +1,7 @@
 const types = {
 	CHANGE_IMAGE_WIDTH: 'CHANGE_IMAGE_WIDTH',
-	CHANGE_ACTIVE_COLLECTION: 'CHANGE_ACTIVE_COLLECTION'
+	CHANGE_ACTIVE_COLLECTION: 'CHANGE_ACTIVE_COLLECTION',
+	SCREEN_RESIZE: 'SCREEN_RESIZE'
 };
 
 const initialState = {
@@ -38,7 +39,10 @@ const initialState = {
 			death: 1984,
 			directory: '05'
 		}												
-	]
+	],
+	screenWidth: typeof window === 'object' ?
+		window.innerWidth :
+		null
 };
 
 export const changeImageWidth = (width) => {
@@ -55,6 +59,13 @@ export const changeActiveCollection = (collection) => {
 	};
 };
 
+export const screenResize = (width) => {
+	return {
+		type: types.SCREEN_RESIZE,
+		width
+	}
+}
+
 export default (state = initialState, action) => {
 	switch(action.type) {
 		case types.CHANGE_IMAGE_WIDTH:
@@ -68,6 +79,12 @@ export default (state = initialState, action) => {
 				...state,
 				activeCollection: action.collection,
 				imageDirectory: state.collections[action.collection].directory
+			}
+
+		case types.SCREEN_RESIZE:
+			return {
+				...state,
+				screenWidth: action.width
 			}
 
 		default:

@@ -5,7 +5,12 @@ import Draggable from 'react-draggable';
 
 class Slider extends Component {
 	static propTypes = {
-		changeImageWidth: React.PropTypes.func.isRequired
+		changeImageWidth: React.PropTypes.func.isRequired,
+		screenWidth: React.PropTypes.number
+	}
+
+	static defaultProps = {
+		screenWidth: window.innerWidth
 	}
 
 	constructor(props) {
@@ -26,8 +31,6 @@ class Slider extends Component {
 		// -46 --> 47 range
 		const width = (this.state.deltaPosition.x + 46)/93;
 
-		console.log(width);
-
 		this.props.changeImageWidth(width);
 	}
 
@@ -43,10 +46,11 @@ class Slider extends Component {
 	}
 
 	render() {
-		let isMobile = false;
+		const isMobile = this.props.screenWidth < 640;
 
 		const mediaQueryStyles = isMobile ? {
-				
+				margin: '0 auto',
+				transform: 'scale(2)'
 			} :
 			{
 				position: 'absolute',

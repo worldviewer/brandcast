@@ -9,7 +9,8 @@ const assets = require.context('../../public/img', true, /\.jpg$/).keys();
 class Gallery extends Component {
 	static propTypes = {
 		directory: React.PropTypes.string.isRequired,
-		imageSize: React.PropTypes.number
+		imageSize: React.PropTypes.number,
+		screenWidth: React.PropTypes.number
 	}
 
 	constructor(props) {
@@ -22,7 +23,8 @@ class Gallery extends Component {
 
 	static defaultProps = {
 		directory: '01',
-		imageSize: .5
+		imageSize: .5,
+		screenWidth: window.innerWidth
 	}
 
 	getImageNames(directory) {
@@ -43,20 +45,17 @@ class Gallery extends Component {
 	}
 
 	render() {
-		const 
-			isMobile = false;
+		const isMobile = this.props.screenWidth < 640
 
 		const mediaQueryStyles = isMobile ? {
-
-			} :
-			{
-
-			};
+				display: 'block',
+				position: 'relative',
+				top: '150px'} : {};
 
 		const width = this.props.imageSize * 500;
 
 		return (
-			<div className="Gallery">
+			<div className="Gallery" style={mediaQueryStyles}>
 				<div className="vertical-line"></div>
 				<div className="images">
 
