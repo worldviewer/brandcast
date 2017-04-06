@@ -28,7 +28,7 @@ class Slider extends Component {
 	}
 
 	handleDragStop() {
-		// -46 --> 47 range
+		// -46 --> 47, total range of 93
 		const width = (this.state.deltaPosition.x + 46)/93;
 
 		this.props.changeImageWidth(width);
@@ -46,11 +46,11 @@ class Slider extends Component {
 	}
 
 	render() {
-		const isMobile = this.props.screenWidth < 640;
+		const isMobile = this.props.screenWidth < this.props.mobileBreakpoint;
 
 		const mediaQueryStyles = isMobile ? {
 				margin: '0 auto',
-				transform: 'scale(2)'
+				transform: 'scale(2)' // better, but not perfect
 			} :
 			{
 				position: 'absolute',

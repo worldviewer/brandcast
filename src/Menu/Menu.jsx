@@ -26,7 +26,7 @@ class Menu extends Component {
 	}
 
 	render() {
-		const isMobile = this.props.screenWidth < 640;
+		const isMobile = this.props.screenWidth < this.props.mobileBreakpoint;
 
 		const mediaQueryStyles = isMobile ? {
 				display: 'block',

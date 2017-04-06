@@ -9,31 +9,38 @@ import Slider from './Slider/Slider.jsx';
 
 class App extends Component {
 	render() {
-		const isMobile = this.props.screenWidth < 640;
+		const
+			breakpoint = 640,
+			isMobile = this.props.screenWidth < breakpoint;
 
 		return (
 			<div className="App">
 				{!isMobile && (<Slider
 					value={50}
 				 	changeImageWidth={this.props.changeImageWidth}
-				 	screenWidth={this.props.screenWidth} />)}
+				 	screenWidth={this.props.screenWidth}
+				 	mobileBreakpoint={breakpoint} />)}
 
 				<Menu
 					active={this.props.activeCollection}
 					changeActiveCollection={this.props.changeActiveCollection}
 					collections={this.props.collections}
-					screenWidth={this.props.screenWidth} />
+					screenWidth={this.props.screenWidth}
+					mobileBreakpoint={breakpoint} />
 
 				{isMobile && (<Slider
 					value={50}
 				 	changeImageWidth={this.props.changeImageWidth}
-				 	screenWidth={this.props.screenWidth} />)}
+				 	screenWidth={this.props.screenWidth}
+				 	mobileBreakpoint={breakpoint} />)}
 
 				<Gallery
 					directory={this.props.imageDirectory}
 					imageSize={this.props.imageWidth}
 					collections={this.props.collections}
-					screenWidth={this.props.screenWidth} />
+					screenWidth={this.props.screenWidth}
+					mobileBreakpoint={breakpoint}
+					medianWidth={500} />
 			</div>
 		);
 	}

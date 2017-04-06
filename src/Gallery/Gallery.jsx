@@ -10,7 +10,9 @@ class Gallery extends Component {
 	static propTypes = {
 		directory: React.PropTypes.string.isRequired,
 		imageSize: React.PropTypes.number,
-		screenWidth: React.PropTypes.number
+		screenWidth: React.PropTypes.number,
+		breakpoint: React.PropTypes.number,
+		medianWidth: React.PropTypes.number
 	}
 
 	constructor(props) {
@@ -24,7 +26,9 @@ class Gallery extends Component {
 	static defaultProps = {
 		directory: '01',
 		imageSize: .5,
-		screenWidth: window.innerWidth
+		screenWidth: window.innerWidth,
+		breakpoint: 640,
+		medianWidth: 500
 	}
 
 	getImageNames(directory) {
@@ -45,14 +49,14 @@ class Gallery extends Component {
 	}
 
 	render() {
-		const isMobile = this.props.screenWidth < 640;
+		const isMobile = this.props.screenWidth < this.props.mobileBreakpoint;
 
 		const mediaQueryStyles = isMobile ? {
 				display: 'block',
 				position: 'relative',
 				top: '90px'} : {};
 
-		const width = this.props.imageSize * 500;
+		const width = this.props.imageSize * this.props.medianWidth;
 
 		return (
 			<div className="Gallery" style={mediaQueryStyles}>
