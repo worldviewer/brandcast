@@ -43,6 +43,18 @@ class Gallery extends Component {
 	}
 
 	render() {
+		const 
+			isMobile = false;
+
+		const mediaQueryStyles = isMobile ? {
+
+			} :
+			{
+
+			};
+
+		const width = this.props.imageSize * 500;
+
 		return (
 			<div className="Gallery">
 				<div className="vertical-line"></div>
@@ -52,7 +64,8 @@ class Gallery extends Component {
 						(<img src={'img/' + filename}
 							key={i}
 							alt="artist's work"
-							className="graphics" />))
+							className="graphics"
+							width={width + 'px'} />))
 					}
 
 				</div>
