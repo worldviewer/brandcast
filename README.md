@@ -2,6 +2,12 @@
 
 Go here: https://worldviewer.github.io/brandcast/
 
+# Mockup
+
+<p align="center">
+    <img src="https://github.com/worldviewer/brandcast/blob/master/public/ui-ux-test.jpg" />
+</p>
+
 # Directions
 
 ```
