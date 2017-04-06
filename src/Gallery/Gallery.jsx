@@ -2,10 +2,22 @@ import React, { Component } from 'react';
 import './Gallery.css';
 import { connect } from 'react-redux';
 
+// Fetch all image assets at runtime using Webpack context.
+// For more info, see http://webpack.github.io/docs/context.html
+const assets = require.context('../../public/img', true, /\.jpg$/).keys();
+
 class Gallery extends Component {
 	static propTypes = {
 		directory: React.PropTypes.string.isRequired,
 		imageSize: React.PropTypes.number
+	}
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			files: []
+		};
 	}
 
 	static defaultProps = {
@@ -13,11 +25,21 @@ class Gallery extends Component {
 		imageSize: .5
 	}
 
-	getImageNames() {
+	getImageNames(directory) {
+		const re = new RegExp('/' + directory + '/', "g");
+		const files = assets.filter(filename => filename.match(re));
+
+		this.setState({
+			files
+		});
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.getImageNames();
+		this.getImageNames(nextProps.directory);
+	}
+
+	componentDidMount() {
+		this.getImageNames(this.props.directory);
 	}
 
 	render() {
@@ -25,6 +47,10 @@ class Gallery extends Component {
 			<div className="Gallery">
 				<div className="vertical-line"></div>
 				<div className="images">
+
+					{ this.state.files.map((filename, i) =>
+						(<img src={'img/' + filename} key={i} alt="artist's work" />))
+					}
 
 				</div>
 			</div>

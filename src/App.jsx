@@ -22,7 +22,8 @@ class App extends Component {
 
 				<Gallery
 					directory={this.props.imageDirectory}
-					imageSize={this.props.imageWidth} />
+					imageSize={this.props.imageWidth}
+					collections={this.props.collections} />
 			</div>
 		);
 	}
