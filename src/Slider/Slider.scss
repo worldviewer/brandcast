@@ -29,6 +29,7 @@
 
     // Inner in outer circles fixes flat tire circles
     .outer-circle {
+    	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 		background-color: black;
 		border: 1px solid black;
 		border-radius: 16px;
