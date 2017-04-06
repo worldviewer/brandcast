@@ -9,6 +9,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Slider value={50} />
+				<Menu active={1} />
 			</div>
 		);
 	}

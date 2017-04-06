@@ -1,0 +1,50 @@
+.Menu {
+	font-family: verdana, helvetica;
+	position: relative;
+
+	.collection {
+		list-style-type: none;
+		margin-bottom: 40px;
+		position: relative;
+		left: 40px;
+
+		&::after {
+			content: "_"
+		}
+	}
+
+	.collection-set {
+		margin: 0;
+	}
+
+	.name {
+		color: black;
+		font-size: 16px;
+		margin: 0 0 5px 0;
+	}
+
+	.dates {
+		color: #c9c9c9;
+		font-size: 12px;
+		margin: 0;
+	}
+
+	.vertical-line {
+		background-color: black;
+		width: 6px;
+    }
+
+    .li-line {
+		height: 100%;
+    	left: -40px;
+    	position: absolute;
+    }
+
+    // Move this to Gallery component
+    .ul-line {
+    	height: 100%;
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+    }
+}

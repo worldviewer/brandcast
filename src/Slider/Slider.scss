@@ -27,12 +27,13 @@
     	z-index: 5;
     }
 
+    // Inner in outer circles fixes flat tire circles
     .outer-circle {
 		background-color: black;
 		border: 1px solid black;
 		border-radius: 16px;
 		height: 16px;
-		left: 41%; // 1 --> 83%
+		left: 41%; // 1 --> 83 range maps to 0 --> 100%
 		position: absolute;
 		top: -5px;
 		width: 16px;
