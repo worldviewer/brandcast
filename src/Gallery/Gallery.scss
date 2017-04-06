@@ -1,6 +1,6 @@
 .Gallery {
 	display: inline-block;
-	height: 1000px; // Should be dynamic
+    padding-left: 30px;
 	position: absolute;
 	top: 30px;
 
@@ -11,5 +11,9 @@
     	position: absolute;
     	top: 0;
 		width: 6px;
+    }
+
+    .graphics {
+        margin: 15px;
     }
 }

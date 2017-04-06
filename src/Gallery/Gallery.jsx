@@ -49,7 +49,10 @@ class Gallery extends Component {
 				<div className="images">
 
 					{ this.state.files.map((filename, i) =>
-						(<img src={'img/' + filename} key={i} alt="artist's work" />))
+						(<img src={'img/' + filename}
+							key={i}
+							alt="artist's work"
+							className="graphics" />))
 					}
 
 				</div>
