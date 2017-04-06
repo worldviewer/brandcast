@@ -45,12 +45,12 @@ class Gallery extends Component {
 	}
 
 	render() {
-		const isMobile = this.props.screenWidth < 640
+		const isMobile = this.props.screenWidth < 640;
 
 		const mediaQueryStyles = isMobile ? {
 				display: 'block',
 				position: 'relative',
-				top: '150px'} : {};
+				top: '90px'} : {};
 
 		const width = this.props.imageSize * 500;
 

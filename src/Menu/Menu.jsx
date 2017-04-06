@@ -26,11 +26,11 @@ class Menu extends Component {
 	}
 
 	render() {
-		const isMobile = this.props.screenWidth < 640
+		const isMobile = this.props.screenWidth < 640;
 
 		const mediaQueryStyles = isMobile ? {
 				display: 'block',
-				top: '100px'
+				top: '-50px'
 			} :
 			{
 				display: 'inline-block',
