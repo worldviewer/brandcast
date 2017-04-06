@@ -11,4 +11,8 @@ class Slider extends Component {
 	}
 }
 
+Slider.propTypes = {
+	value: React.PropTypes.number
+};
+
 export default Slider;

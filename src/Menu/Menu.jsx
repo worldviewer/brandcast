@@ -11,4 +11,8 @@ class Menu extends Component {
 	}
 }
 
+Menu.propTypes = {
+	Selections: React.PropTypes.object.isRequired
+};
+
 export default Menu;

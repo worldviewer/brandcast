@@ -11,4 +11,8 @@ class Gallery extends Component {
 	}
 }
 
+Gallery.propTypes = {
+	directory: React.PropTypes.string.isRequired
+};
+
 export default Gallery;
