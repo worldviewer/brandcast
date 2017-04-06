@@ -20,7 +20,9 @@ class App extends Component {
 					changeActiveCollection={this.props.changeActiveCollection}
 					collections={this.props.collections} />
 
-				<Gallery />
+				<Gallery
+					directory={this.props.imageDirectory}
+					imageSize={this.props.imageWidth} />
 			</div>
 		);
 	}

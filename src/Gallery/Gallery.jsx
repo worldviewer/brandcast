@@ -8,16 +8,25 @@ class Gallery extends Component {
 		imageSize: React.PropTypes.number
 	}
 
-	getDefaultProps() {
-		return {
-			size: 50
-		}
+	static defaultProps = {
+		directory: '01',
+		imageSize: .5
+	}
+
+	getImageNames() {
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.getImageNames();
 	}
 
 	render() {
 		return (
 			<div className="Gallery">
 				<div className="vertical-line"></div>
+				<div className="images">
+
+				</div>
 			</div>
 		);
 	}
