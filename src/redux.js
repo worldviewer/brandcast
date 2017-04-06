@@ -4,7 +4,7 @@ const types = {
 };
 
 const initialState = {
-	imageWidth: '250px',
+	imageWidth: 0.5,
 	activeCollection: 0,
 	imageDirectory: '01',
 	collections: [

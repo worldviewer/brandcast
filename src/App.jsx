@@ -11,7 +11,10 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Slider value={50} />
+				<Slider
+					value={50}
+				 	changeImageWidth={this.props.changeImageWidth} />
+
 				<Menu
 					active={this.props.activeCollection}
 					changeActiveCollection={this.props.changeActiveCollection}

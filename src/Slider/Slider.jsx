@@ -1,15 +1,45 @@
 import React, { Component } from 'react';
 import './Slider.css';
 import { connect } from 'react-redux';
-import { changeImageWidth } from '../redux';
+import Draggable from 'react-draggable';
 
 class Slider extends Component {
 	static propTypes = {
-		value: React.PropTypes.number
+		changeImageWidth: React.PropTypes.func // .isRequired
 	}
 
-	static defaultProps = {
-		value: 48.4
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			deltaPosition: {
+				x: 0,
+				y: 0
+			}
+		};
+
+		this.handleDrag = this.handleDrag.bind(this);
+		this.handleDragStop = this.handleDragStop.bind(this);
+	}
+
+	handleDragStop() {
+		// -46 --> 47 range
+		const width = (this.state.deltaPosition.x + 46)/93;
+
+		console.log(width);
+
+		this.props.changeImageWidth(width);
+	}
+
+	handleDrag(e, ui) {
+	    const {x, y} = this.state.deltaPosition;
+
+	    this.setState({
+	    	deltaPosition: {
+	    		x: x + ui.deltaX,
+	    		y: y + ui.deltaY
+	    	}
+	    });
 	}
 
 	render() {
@@ -25,9 +55,8 @@ class Slider extends Component {
 			};
 
 		const
-			percent = (this.props.value + 1)*0.83,
 			circleStyle = {
-				left: percent + '%'
+				left: '42%'
 			};
 
 		return (
@@ -35,9 +64,19 @@ class Slider extends Component {
 				<div className="vertical-line left-line"></div>
 				<div className="vertical-line right-line"></div>
 				<div className="horizontal-line"></div>
-				<div className="outer-circle" style={circleStyle}>
-					<div className="inner-circle"></div>
-				</div>
+
+				<Draggable
+					axis="x"
+					bounds="parent"
+					onDrag={this.handleDrag}
+					onStop={this.handleDragStop}>
+
+					<div className="outer-circle" style={circleStyle}>
+						<div className="inner-circle"></div>
+					</div>
+
+				</Draggable>
+
 			</div>
 		);
 	}
@@ -50,11 +89,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		changeImageWidth: (width) => {
-			return dispatch(changeImageWidth(width));
-		}
-	};
+	return {...ownProps};
 };
 
 export default connect(
