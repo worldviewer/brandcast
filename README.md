@@ -1,6 +1,16 @@
-# Live
+# Live (Mobile/Desktop)
 
 Go here: https://worldviewer.github.io/brandcast/
+
+# Run Locally
+
+    git clone git@github.com:worldviewer/brandcast.git
+    npm install
+    npm run start
+
+Browser should open to ...
+
+    http://localhost:3000
 
 # Mockup
 
