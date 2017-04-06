@@ -5,7 +5,7 @@ import Draggable from 'react-draggable';
 
 class Slider extends Component {
 	static propTypes = {
-		changeImageWidth: React.PropTypes.func // .isRequired
+		changeImageWidth: React.PropTypes.func.isRequired
 	}
 
 	constructor(props) {

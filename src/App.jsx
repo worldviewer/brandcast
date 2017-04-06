@@ -19,6 +19,8 @@ class App extends Component {
 					active={this.props.activeCollection}
 					changeActiveCollection={this.props.changeActiveCollection}
 					collections={this.props.collections} />
+
+				<Gallery />
 			</div>
 		);
 	}

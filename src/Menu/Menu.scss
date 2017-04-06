@@ -1,6 +1,7 @@
 .Menu {
 	font-family: verdana, helvetica;
 	position: relative;
+	top: 30px;
 
 	.collection {
 		cursor: pointer;
@@ -32,20 +33,9 @@
 
 	.vertical-line {
 		background-color: black;
-		width: 6px;
-    }
-
-    .li-line {
 		height: 100%;
     	left: -40px;
     	position: absolute;
-    }
-
-    // Move this to Gallery component
-    .ul-line {
-    	height: 100%;
-    	position: absolute;
-    	right: 0;
-    	top: 0;
+		width: 6px;
     }
 }

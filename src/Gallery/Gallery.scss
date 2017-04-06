@@ -1,0 +1,15 @@
+.Gallery {
+	display: inline-block;
+	height: 1000px; // Should be dynamic
+	position: absolute;
+	top: 30px;
+
+    .vertical-line {
+    	background-color: black;
+    	height: 100%;
+    	left: 0;
+    	position: absolute;
+    	top: 0;
+		width: 6px;
+    }
+}

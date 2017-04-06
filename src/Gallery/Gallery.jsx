@@ -17,7 +17,7 @@ class Gallery extends Component {
 	render() {
 		return (
 			<div className="Gallery">
-
+				<div className="vertical-line"></div>
 			</div>
 		);
 	}
